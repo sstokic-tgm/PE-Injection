@@ -90,11 +90,11 @@ int main(int argc, char **argv)
 	}
 
 	std::cout << "Memory allocated. Address: 0x" << mem <<"\n";
+
+	// Image relocation - start
 	image = VirtualAlloc(NULL, nSizeOfImage, MEM_COMMIT | MEM_RESERVE, PAGE_EXECUTE_READWRITE);
 
 	memcpy(image, hModule, nSizeOfImage);
-
-	// Image relocation - start
 
 	pIDD = &pINH->OptionalHeader.DataDirectory[IMAGE_DIRECTORY_ENTRY_BASERELOC];
 	pIBR = (PIMAGE_BASE_RELOCATION)((LPBYTE)image + pIDD->VirtualAddress);
