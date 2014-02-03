@@ -1,0 +1,12 @@
+*.sdf
+Debug/*
+Release/*
+*.opensdf
+*.sln
+*.suo
+*.v11.suo
+PEInjection/Debug/*
+PEInjection/Release/*
+*.vcxproj
+*.vcxproj.filters
+*.vcxproj.user
