@@ -94,6 +94,8 @@ int main(int argc, char **argv)
 
 	memcpy(image, hModule, nSizeOfImage);
 
+	// Image relocation - start
+
 	pIDD = &pINH->OptionalHeader.DataDirectory[IMAGE_DIRECTORY_ENTRY_BASERELOC];
 	pIBR = (PIMAGE_BASE_RELOCATION)((LPBYTE)image + pIDD->VirtualAddress);
 
@@ -121,6 +123,7 @@ int main(int argc, char **argv)
 
 		pIBR = (PIMAGE_BASE_RELOCATION)((LPBYTE)pIBR + pIBR->SizeOfBlock);
 	}
+	// Image relocation - end
 
 	std::cout << "Writing executable image into target process...\n";
 	// Writing executable image into target process
